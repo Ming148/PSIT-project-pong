@@ -36,4 +36,5 @@ while True:
     pygame.draw.ellipse(screen, light_grey, ball)
     pygame.draw.aaline(screen, light_grey, (screen_width/2, 0), (screen_width/2, screen_height))
 
+    # updating display
     pygame.display.flip()
