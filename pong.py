@@ -16,6 +16,7 @@ ball = pygame.Rect(screen_width/2 - 15, screen_height/2 - 15, 30, 30)
 player_1 = pygame.Rect(10, screen_height/2 - 70, 10, 140)
 player_2 = pygame.Rect(screen_width - 20, screen_height/2 - 70, 10, 140)
 
+# color
 bg_color = pygame.Color('grey12')
 light_grey = (200, 200, 200)
 red = (255, 0, 0)
