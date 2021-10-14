@@ -1,3 +1,3 @@
 # PSIT-project-pong
 
-### Project-game-pong
+Note for Project-game-pong
