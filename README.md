@@ -7,3 +7,7 @@ Note for Project-game-pong
 - นางสาวพีรณัฐ ทิพย์รักษ์ 64070075
 - นายธาม ถาวรกิจ 64070048
 - นายโหว้ย หมิง ลี 64070113
+
+## Week 1 10-16 October 2021
+- git test
+- learn pygame
