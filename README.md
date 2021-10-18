@@ -11,3 +11,7 @@ Note for Project-game-pong
 ## Week 1 10-16 October 2021
 - git test
 - learn pygame
+
+## Week 2 17-23 October 2021
+- Create display
+- Create game object
