@@ -15,3 +15,4 @@ Note for Project-game-pong
 ## Week 2 17-23 October 2021
 - Create display
 - Create game object
+- Create animation
