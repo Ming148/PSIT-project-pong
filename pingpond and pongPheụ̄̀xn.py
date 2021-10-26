@@ -37,18 +37,18 @@ def player_1animation():
     if player_1.bottom >= screen_height:
         player_1.bottom = screen_height
 
-def ballanimation(): #ลูดบอล
+def ballanimation(): #ลูกบอล
     global ball_speed_x, ball_speed_y, player_score_1, player_score_2, score_time
     ball.x += ball_speed_x
     ball.y += ball_speed_y
-    if ball.top <= 0 or ball.bottom >= screen_height:
+    if ball.top <= 0 or ball.bottom >= screen_height: #ถ้าบอลแตะขอบบนหรือล่างจะกลับด้าน
         ball_speed_y *= -1
     
-    if ball.right >= screen_width:
+    if ball.right >= screen_width: #นับคะแนน
         player_score_2 += 1
         score_time = pygame.time.get_ticks()
     
-    if ball.left <= 0:
+    if ball.left <= 0: #นับคะแนน
         player_score_1 += 1
         score_time = pygame.time.get_ticks()
     
