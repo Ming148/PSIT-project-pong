@@ -96,8 +96,8 @@ while True:
     # ball
     ballanimation()
     player_2animation()
-    player_1animation()
-    #opponentanimation_1()
+    #player_1animation()
+    opponentanimation_1()
 
     # color
     screen.fill(bg_color)
