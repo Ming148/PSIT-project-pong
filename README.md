@@ -10,5 +10,5 @@ Note for Project-game-pong
 
 ## คำสั่ง
 ```python
-pygame.rect(point_x, point_y, width, height)
+pygame.Rect(point_x, point_y, width, height)
 ```
