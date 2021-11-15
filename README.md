@@ -9,6 +9,7 @@ Note for Project-game-pong
 - นายโหว้ย หมิง ลี 64070113
 
 ## คำสั่ง
+
 1. สร้างรูปสี่เหลี่ยม
 ```python
 pygame.Rect(point_x, point_y, width, height)
