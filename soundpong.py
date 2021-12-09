@@ -23,21 +23,24 @@ light_grey = (200, 200, 200)
 red = (255, 0, 0)
 blue = (0, 0, 255)
 
-def player_2animation():
-    player_2.y += player_2speed
-    if player_2.top <= 0:
-        player_2.top = 0
-    if player_2.bottom >= screen_height:
-        player_2.bottom = screen_height
-
 def player_1animation():
+    """player 2 animetion"""
     player_1.y += player_1speed
     if player_1.top <= 0:
         player_1.top = 0
     if player_1.bottom >= screen_height:
         player_1.bottom = screen_height
 
+def player_2animation():
+    """player 2 animetion"""
+    player_2.y += player_2speed
+    if player_2.top <= 0:
+        player_2.top = 0
+    if player_2.bottom >= screen_height:
+        player_2.bottom = screen_height
+
 def ballanimation(): #ลูดบอล
+    """ballanimetion"""
     global ball_speed_x, ball_speed_y, player_score_1, player_score_2, score_time
 
     ball.x += ball_speed_x
@@ -77,6 +80,7 @@ def ballanimation(): #ลูดบอล
             ball_speed_y *= -1
 
 def opponentanimation_1(): #bot
+    """opponentanimation_1"""
     if player_1.top < ball.y:
         player_1.top += bot_speed
     if player_1.bottom > ball.y:
@@ -87,6 +91,7 @@ def opponentanimation_1(): #bot
         player_1.bottom = screen_height
 
 def ball_restart():
+    """ball restart"""
     global ball_speed_x, ball_speed_y, ball_moving, score_time
 
     ball.center = (screen_width/2, screen_height/2)
@@ -164,7 +169,8 @@ while True:
     # ball
     ballanimation()
     player_2animation()
-    #player_1animation()
+
+    # bot
     opponentanimation_1()
 
     # color
