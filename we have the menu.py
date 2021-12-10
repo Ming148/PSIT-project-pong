@@ -210,17 +210,6 @@ def one_player():
                 if event.key == pygame.K_UP:
                     player_2speed += 7
 
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_s:
-                    player_1speed += 7
-                if event.key == pygame.K_w:
-                    player_1speed -= 7
-            if event.type == pygame.KEYUP:
-                if event.key == pygame.K_s:
-                    player_1speed -= 7
-                if event.key == pygame.K_w:
-                    player_1speed += 7
-
         # ball
         ballanimation()
         player_2animation()
