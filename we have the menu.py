@@ -5,7 +5,8 @@ from pygame.constants import MOUSEBUTTONDOWN
 
 # set up
 pygame.init()
-font = pygame.font.SysFont(None, 40)
+font_l = pygame.font.Font('depixelhalbfett.ttf', 35)
+font_s = pygame.font.Font('depixelhalbfett.ttf', 20)
 clock = pygame.time.Clock()
 click = False
 
@@ -39,7 +40,7 @@ def main_manu():
     """main manu"""
     while True:
         screen.fill((bg_color))
-        draw_text("Pingpond and PongPheun", font, (255, 255, 255), screen, 470, 220)
+        draw_text("Pingpond and PongPheun", font_l, (255, 255, 255), screen, 320, 220)
         mx, my = pygame.mouse.get_pos()
         button_1 = pygame.Rect(540, 300, 200, 50)
         button_2 = pygame.Rect(540, 400, 200, 50)
@@ -52,8 +53,8 @@ def main_manu():
         click = False
         pygame.draw.rect(screen, (255, 0, 0), button_1)
         pygame.draw.rect(screen, (255, 0, 0), button_2)
-        draw_text("1 Player", font, (255, 255, 255), screen, 590, 310)
-        draw_text("2 Player", font, (255, 255, 255), screen, 590, 410)
+        draw_text("1 Player", font_s, (255, 255, 255), screen, 585, 310)
+        draw_text("2 Player", font_s, (255, 255, 255), screen, 585, 410)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
@@ -95,7 +96,7 @@ def ballanimation(): #ลูดบอล
     ball.y += ball_speed_y
 
     if ball.top <= 0 or ball.bottom >= screen_height:
-        pygame.mixer.Sound.play(wall_sound)
+        pygame.mixer.Sound.play(pong_sound)
         ball_speed_y *= -1
        
     if ball.left <= 0:
@@ -181,9 +182,9 @@ game_font = pygame.font.Font('freesansbold.ttf', 32)
 score_time = True
 
 # Sound
-pong_sound = pygame.mixer.Sound("paddle.ogg")
+#pong_sound = pygame.mixer.Sound("paddle.ogg")
 score_sound = pygame.mixer.Sound("score.ogg")
-wall_sound = pygame.mixer.Sound("wall.ogg")
+pong_sound = pygame.mixer.Sound("pong.ogg")
 
 def one_player():
     """one_player"""
