@@ -279,8 +279,6 @@ def two_player():
         player_1animation()
         player_2animation()
 
-        # bot
-
         # color
         screen.fill(bg_color)
         pygame.draw.rect(screen, red, player_1)
