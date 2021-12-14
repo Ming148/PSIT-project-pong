@@ -11,10 +11,8 @@ font_l = pygame.font.Font('depixelhalbfett.ttf', 35)
 font_s = pygame.font.Font('depixelhalbfett.ttf', 20)
 clock = pygame.time.Clock()
 click = False
-key_arrow = pygame.image.load(
-    r'D:\IT_KMITL\PSIT\PSIT-project-pong\key_arrow.png')
-key_wasd = pygame.image.load(
-    r'D:\IT_KMITL\PSIT\PSIT-project-pong\key_wasd.png')
+key_arrow = pygame.image.load('key_arrow.png')
+key_wasd = pygame.image.load('key_wasd.png')
 
 # หน้าต่างเกมหลัก
 screen_width = 1280
@@ -36,14 +34,12 @@ blue = (84, 84, 240)
 
 # menu
 
-
 def draw_text(text, font, color, surface, x, y):
     """draw text"""
     textobj = font.render(text, 1, color)
     textrect = textobj.get_rect()
     textrect.topleft = (x, y)
     surface.blit(textobj, textrect)
-
 
 def main_manu():
     """main manu"""
@@ -93,7 +89,6 @@ def main_manu():
         # updating display
         pygame.display.update()
 
-
 def how_to_play():
     """how_to_play"""
     while True:
@@ -136,7 +131,6 @@ def how_to_play():
 
         pygame.display.update()
 
-
 def pause():
     """pause"""
     paused = True
@@ -160,7 +154,6 @@ def pause():
 
         pygame.display.update()
 
-
 # base game
 def player_1animation():
     """player 1 animetion"""
@@ -170,7 +163,6 @@ def player_1animation():
     if player_1.bottom >= screen_height:
         player_1.bottom = screen_height
 
-
 def player_2animation():
     """player 2 animetion"""
     player_2.y += player_2speed
@@ -178,7 +170,6 @@ def player_2animation():
         player_2.top = 0
     if player_2.bottom >= screen_height:
         player_2.bottom = screen_height
-
 
 def ballanimation():  # ลูดบอล
     """ballanimetion"""
@@ -220,7 +211,6 @@ def ballanimation():  # ลูดบอล
         elif abs(ball.top - player_1.bottom) < 10 and ball_speed_y < 0:
             ball_speed_y *= -1
 
-
 def opponentanimation_1():  # bot
     """opponentanimation_1"""
     if player_1.top < ball.y:
@@ -231,7 +221,6 @@ def opponentanimation_1():  # bot
         player_1.top = 0
     if player_1.bottom >= screen_height:
         player_1.bottom = screen_height
-
 
 def ball_restart():
     """ball restart"""
@@ -258,7 +247,6 @@ def ball_restart():
         ball_speed_y = 7 * random.choice(randomball)
         score_time = None
 
-
 # ball
 randomball = [1, -1]
 ball_speed_x = 7 * random.choice(randomball)
@@ -271,6 +259,7 @@ ball_moving = False
 # Text variables
 player_score_1 = 0
 player_score_2 = 0
+max_score = 11
 game_font = pygame.font.Font('freesansbold.ttf', 32)
 
 # Score timer
@@ -281,6 +270,25 @@ score_time = True
 score_sound = pygame.mixer.Sound("score.ogg")
 pong_sound = pygame.mixer.Sound("pong.ogg")
 
+def gameOver():
+    if player_score_1 == max_score or player_score_2 == max_score:
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    sys.exit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_q:
+                        pygame.quit()
+                        sys.exit()
+                    if event.key == pygame.K_r:
+                        ball_restart()
+            if player_score_1 == max_score:
+                draw_text("You Wins!", font_s, (0, 0, 255), screen, 920, 420)
+            elif player_score_2 == max_score:
+                draw_text("You Wins!", font_s, (255, 0, 0), screen, 220, 420)
+            
+            pygame.display.update()
 
 def one_player():
     """one_player"""
@@ -313,7 +321,6 @@ def one_player():
 
         # bot
         opponentanimation_1()
-
         # color
         screen.fill(bg_color)
         pygame.draw.rect(screen, red, player_1)
@@ -336,7 +343,7 @@ def one_player():
         # updating display
         pygame.display.flip()
         clock.tick(60)
-
+        gameOver()
 
 def two_player():
     """two player"""
@@ -379,8 +386,6 @@ def two_player():
         player_1animation()
         player_2animation()
 
-        # bot
-
         # color
         screen.fill(bg_color)
         pygame.draw.rect(screen, red, player_1)
@@ -403,6 +408,6 @@ def two_player():
         # updating display
         pygame.display.flip()
         clock.tick(60)
-
+        gameOver()
 
 main_manu()
