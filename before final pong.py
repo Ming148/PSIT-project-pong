@@ -98,7 +98,7 @@ def how_to_play():
         screen.blit(key_arrow, (860, 350))
         screen.blit(key_wasd, (580, 339))
 
-        button = pygame.Rect(540, 800, 200, 50)
+        button = pygame.Rect(540, 850, 200, 50)
         if button.collidepoint((mx, my)):
             if click:
                 main_manu()
@@ -115,7 +115,9 @@ def how_to_play():
                   (255, 255, 255), screen, 495, 650)
         draw_text("Press \"Q\" to exit", font_s,
                   (255, 255, 255), screen, 528, 720)
-        draw_text("Main menu", font_s, (255, 255, 255), screen, 562, 812)
+        draw_text("game over : if the score is 11, the game is over", font_s,
+                  (255, 255, 255), screen, 305, 790)
+        draw_text("Main menu", font_s, (255, 255, 255), screen, 562, 862)
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
