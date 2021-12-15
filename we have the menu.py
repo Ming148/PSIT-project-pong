@@ -217,7 +217,6 @@ def one_player():
 
         # bot
         opponentanimation_1()
-
         # color
         screen.fill(bg_color)
         pygame.draw.rect(screen, red, player_1)
